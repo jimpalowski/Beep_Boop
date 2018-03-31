@@ -1,33 +1,37 @@
 //BUSINESS LOGIC
 
 var Robot = function(num){
-var output = "";
+var output = [];
 
-  if(num.length % 3 === 0){
-    return "Im sorry Dave";
-  }else{
-    for(let i=0; i<num.length; i++){
-      console.log("loop i: ", i);
-      console.log("loop [i]: ", num[i]);
-      output += num[i];
+for(var i = 0; i <= num; i++){
+
+     var string = i.toString();
       
-    }  
-      // if( i == 0){
-      //   console.log("Im before the Beep", i);
-      //   console.log("Im before the Beep", num[i]);
-      //   i = "Shit";
-      //   console.log("Im in the Beep", i);
-      // }
+     if(i != 0 && i % 3 === 0){
+       output.push("I'm sorry, Dave. I'm afraid i can't do that.");
+     }
+     else if(string.includes("1")){
+        output.push("Boop!");
       
-    }
-    
-    console.log("Output is:", output);
+      }
+      else if(string.includes("0")){
+        output.push("Beep!");
+      }
+      else{
+        output.push(i);
+      }
+
   }
+  // console.log(output);
+return output;
+}
+
 
 
 
 
 //USER LOGIC
+
 $(document).ready(function(){
   $("#Main").submit(function(event){
     event.preventDefault();
@@ -39,3 +43,4 @@ $(document).ready(function(){
       
   });
 });
+
